@@ -1,8 +1,13 @@
 import axios from "axios";
 
 // Creating a localized axios instance pointing to the proxy base or VITE_API_URL env
+let backendUrl = import.meta.env.VITE_API_URL || "/api";
+if (backendUrl !== "/api" && !backendUrl.endsWith("/api")) {
+  backendUrl = `${backendUrl.replace(/\/$/, "")}/api`;
+}
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "/api",
+  baseURL: backendUrl,
   headers: {
     "Content-Type": "application/json",
   },

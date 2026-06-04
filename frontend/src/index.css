@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@350;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-background-hex: #FAF9F6;  /* Ivory background */
+  --color-surface-hex: #F3EFEB;     /* Off-white / cream surface card */
+  --color-border-hex: #E4DFD5;      /* Soft warm border */
+  --color-text-hex: #1C1917;        /* Deep charcoal text */
+  --color-text-muted-hex: #78716C;  /* Warm gray muted text */
+  --color-gold-hex: #B89047;        /* Antique gold accent */
+  --color-gold-hover-hex: #A37E3B;  /* Antique gold hover */
+}
+
+.dark {
+  --color-background-hex: #0F0F11;  /* Rich charcoal and near-black background */
+  --color-surface-hex: #18181C;     /* Elegant dark card surface */
+  --color-border-hex: #2A2A2E;      /* Premium dark border */
+  --color-text-hex: #F5F5F0;        /* Warm white typography */
+  --color-text-muted-hex: #9CA3AF;  /* Muted gray text */
+  --color-gold-hex: #C5A059;        /* Warm muted gold accent */
+  --color-gold-hover-hex: #D4AF37;  /* Hover gold */
+}
+
+@theme {
+  --color-bg-app: var(--color-background-hex);
+  --color-surface-app: var(--color-surface-hex);
+  --color-border-app: var(--color-border-hex);
+  --color-text-app: var(--color-text-hex);
+  --color-muted-app: var(--color-text-muted-hex);
+  --color-gold-accent: var(--color-gold-hex);
+  --color-gold-hover: var(--color-gold-hover-hex);
+  
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-background-hex);
+  color: var(--color-text-hex);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Custom Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(184, 144, 71, 0.15); /* Soft gold tint scrollbar */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(184, 144, 71, 0.3);
+}
+
+/* React Modal Styles overrides */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-surface-hex);
+  border: 1px solid var(--color-border-hex);
+  border-radius: 16px;
+  outline: none;
+  padding: 0;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+}
+
+.dark .modal {
+  background: var(--color-surface-hex);
+  border: 1px solid var(--color-border-hex);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+@media (max-width: 640px) {
+  .modal {
+    width: 95%;
+    max-width: none;
+  }
+}

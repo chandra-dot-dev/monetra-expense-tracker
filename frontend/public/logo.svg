@@ -1,0 +1,38 @@
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    path.m-path {
+      stroke: #1C1917;
+    }
+    circle.gold-element, path.gold-element {
+      stroke: #B89047;
+    }
+    circle.gold-fill {
+      fill: #B89047;
+    }
+    @media (prefers-color-scheme: dark) {
+      path.m-path {
+        stroke: #F5F5F0;
+      }
+      circle.gold-element, path.gold-element {
+        stroke: #C5A059;
+      }
+      circle.gold-fill {
+        fill: #C5A059;
+      }
+    }
+  </style>
+  <!-- Outer segmented luxury circle -->
+  <circle cx="16" cy="16" r="14" class="gold-element" stroke-width="1" stroke-dasharray="3 3" opacity="0.35" />
+  
+  <!-- Stylized structural pillars and Monogram M -->
+  <path d="M8 22V10L13 15L16 12L19 15L24 10V22" class="m-path" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Golden upwards growth trend segment -->
+  <path d="M8 20C12 20 14 16 16 16C18 16 20 12 24 12" class="gold-element" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Arrow head on the golden growth trend -->
+  <path d="M20 12H24V16" class="gold-element" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Central accent wealth dot -->
+  <circle cx="16" cy="16" r="1.5" class="gold-fill" />
+</svg>
